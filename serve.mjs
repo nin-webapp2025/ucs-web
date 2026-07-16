@@ -1,7 +1,7 @@
 // Static dev server for the UCS Premier Consults website.
-// Serves the PROJECT ROOT at http://localhost:3000 (per CLAUDE.md).
-// "/" maps to website/index.html when it exists, so localhost:3000 shows the site
-// while /assets/... and /brand_assets/... remain reachable.
+// Serves http://localhost:3000. Requests resolve from the built site (website/)
+// first, then fall back to the repo root, so the app's root-relative /assets/*
+// work AND /brand_assets/* (brand guidelines page) stay reachable.
 import http from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
 import { join, extname, normalize, resolve } from 'node:path';
@@ -34,21 +34,18 @@ const MIME = {
 
 async function resolvePath(urlPath) {
   // decode + strip query, block traversal
-  let p = decodeURIComponent(urlPath.split('?')[0]);
-  if (p === '/' || p === '') {
-    // Prefer the built site if present.
-    for (const candidate of ['website/index.html', 'index.html']) {
-      try { await stat(join(ROOT, candidate)); return join(ROOT, candidate); } catch {}
-    }
-    return join(ROOT, 'website'); // will 404 nicely until the site is built
+  const p = decodeURIComponent(urlPath.split('?')[0]);
+  const safe = normalize(p === '/' || p === '' ? '/index.html' : p).replace(/^(\.\.[/\\])+/, '');
+  // Built site first, then repo root (keeps /brand_assets/* reachable).
+  for (const baseDir of ['website', '.']) {
+    let full = join(ROOT, baseDir, safe);
+    try {
+      let s = await stat(full);
+      if (s.isDirectory()) { full = join(full, 'index.html'); s = await stat(full); }
+      if (s.isFile()) return full;
+    } catch {}
   }
-  const safe = normalize(p).replace(/^(\.\.[/\\])+/, '');
-  let full = join(ROOT, safe);
-  try {
-    const s = await stat(full);
-    if (s.isDirectory()) full = join(full, 'index.html');
-  } catch {}
-  return full;
+  return join(ROOT, 'website', 'index.html'); // SPA-style fallback
 }
 
 const server = http.createServer(async (req, res) => {
