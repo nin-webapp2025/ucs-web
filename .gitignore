@@ -1,0 +1,20 @@
+# Dependencies (any level: root + app/)
+node_modules/
+
+# Working / temporary files
+temporary screenshots/
+*.log
+.eslintcache
+app/dist/
+
+# Local Claude Code + editor settings
+.claude/
+.vscode/
+.idea/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+
+# Bundled skill folder (has its own git repo — not part of this project)
+21st-dev-builder-v2/

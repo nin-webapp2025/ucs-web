@@ -1,0 +1,14 @@
+{
+  "name": "ucs-premier-consults-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Premium website for UCS Premier Consults LTD",
+  "scripts": {
+    "serve": "node serve.mjs",
+    "shot": "node screenshot.mjs http://localhost:3000"
+  },
+  "dependencies": {
+    "puppeteer": "^25.3.0"
+  }
+}

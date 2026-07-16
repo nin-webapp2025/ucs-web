@@ -1,0 +1,275 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/700.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-heading: "Poppins", "Inter", system-ui, sans-serif;
+    --font-eyebrow: "Space Grotesk", "Inter", monospace;
+
+    /* UCS brand palette — sampled from the official logo (brand_assets/brand-guide.md) */
+    --color-ucs-blue: #0A8CC0;
+    --color-ucs-sky: #0794D9;
+    --color-ucs-azure: #076CB0;
+    --color-ucs-navy: #033C81;
+    --color-ucs-ink: #0B4790;
+    --color-ucs-cream: #FDF9F0;
+    --color-midnight: #060B1A;
+    --color-inknavy: #0A1330;
+    --color-cyan-sig: #22D3EE;
+    --color-amber-eng: #F5A623;
+    --color-verdant: #16A34A;
+    --color-cloud: #E6ECF5;
+
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+    --animate-marquee: marquee var(--duration) infinite linear;
+    --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
+  from {
+    transform: translateX(0);
+        }
+  to {
+    transform: translateX(calc(-100% - var(--gap)));
+        }
+    }
+  @keyframes marquee-vertical {
+  from {
+    transform: translateY(0);
+        }
+  to {
+    transform: translateY(calc(-100% - var(--gap)));
+        }
+    }
+}
+
+/* ——— Midnight Studio: the whole site lives on the dark cinematic canvas ——— */
+:root {
+    --background: #060B1A;
+    --foreground: #E6ECF5;
+    --card: #0A1330;
+    --card-foreground: #E6ECF5;
+    --popover: #0A1330;
+    --popover-foreground: #E6ECF5;
+    --primary: #0794D9;
+    --primary-foreground: #FFFFFF;
+    --secondary: #0E1B42;
+    --secondary-foreground: #E6ECF5;
+    --muted: #0A1330;
+    --muted-foreground: #93A5C4;
+    --accent: #0E1B42;
+    --accent-foreground: #E6ECF5;
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: rgba(120, 180, 220, 0.14);
+    --input: rgba(120, 180, 220, 0.18);
+    --ring: #22D3EE;
+    --chart-1: #0794D9;
+    --chart-2: #076CB0;
+    --chart-3: #22D3EE;
+    --chart-4: #F5A623;
+    --chart-5: #16A34A;
+    --radius: 0.625rem;
+    --sidebar: #0A1330;
+    --sidebar-foreground: #E6ECF5;
+    --sidebar-primary: #0794D9;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #0E1B42;
+    --sidebar-accent-foreground: #E6ECF5;
+    --sidebar-border: rgba(120, 180, 220, 0.14);
+    --sidebar-ring: #22D3EE;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    }
+  body {
+    @apply bg-background text-foreground;
+    }
+  html {
+    @apply font-sans;
+    }
+  ::selection {
+    background: rgba(34, 211, 238, 0.25);
+  }
+}
+
+@layer utilities {
+  /* Signature brand gradient — mirrors the logo "C" top-to-bottom */
+  .bg-ucs-gradient {
+    background-image: linear-gradient(150deg, #0794D9 0%, #076CB0 52%, #033C81 100%);
+  }
+  .text-ucs-gradient {
+    background-image: linear-gradient(120deg, #8fe6ff, #41b7ff 46%, #7ea6ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  /* Blueprint grid — engineering-drawing vernacular */
+  .bg-blueprint {
+    background-image:
+      linear-gradient(rgba(120, 190, 230, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120, 190, 230, 0.05) 1px, transparent 1px),
+      linear-gradient(rgba(120, 190, 230, 0.09) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120, 190, 230, 0.09) 1px, transparent 1px);
+    background-size: 32px 32px, 32px 32px, 160px 160px, 160px 160px;
+  }
+  .eyebrow {
+    font-family: var(--font-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-weight: 500;
+  }
+  /* Glass surface — the card system of the dark site.
+     No backdrop-filter: over the dark midnight canvas there is nothing bright
+     behind to blur, so it read identically but cost a per-frame GPU blur on
+     every (tilting) card. The translucent fill + border carries the look. */
+  .glass {
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(120, 180, 220, 0.14);
+  }
+  /* Section horizon — glowing hairline separator */
+  .glow-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.35) 30%, rgba(7, 148, 217, 0.45) 50%, rgba(34, 211, 238, 0.35) 70%, transparent);
+  }
+  /* Cinematic grain */
+  .noise {
+    position: fixed;
+    inset: 0;
+    z-index: 80;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  /* Aurora blobs — the radial gradients are already soft, so a light blur is
+     enough for the dreamy edge at a fraction of the cost of blur(90px). */
+  .aurora {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(32px);
+    will-change: transform;
+    pointer-events: none;
+  }
+  .aurora-a {
+    animation: aurora-a 26s ease-in-out infinite alternate;
+  }
+  .aurora-b {
+    animation: aurora-b 32s ease-in-out infinite alternate;
+  }
+  /* CTA shine sweep */
+  .shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .shine::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -60%;
+    width: 40%;
+    background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    transform: skewX(-20deg) translateX(0);
+    animation: shine-sweep 4.5s ease-in-out infinite;
+  }
+  /* Radar sweep for the Digital telemetry card */
+  .radar-sweep {
+    background: conic-gradient(from 0deg, rgba(34, 211, 238, 0.5), transparent 70deg, transparent);
+    animation: radar-rotate 5s linear infinite;
+    will-change: transform;
+  }
+  .scanline {
+    animation: scan-y 7s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  .blink {
+    animation: blink-p 2.4s ease-in-out infinite;
+  }
+  /* Data trace traveling the hero frame */
+  .trace-x {
+    animation: trace-x 9s linear infinite;
+    will-change: transform;
+  }
+}
+
+@keyframes aurora-a {
+  from { transform: translate3d(-8%, -6%, 0) scale(1); }
+  to   { transform: translate3d(10%, 8%, 0) scale(1.25); }
+}
+@keyframes aurora-b {
+  from { transform: translate3d(6%, 10%, 0) scale(1.15); }
+  to   { transform: translate3d(-10%, -8%, 0) scale(0.95); }
+}
+@keyframes shine-sweep {
+  0%, 55% { transform: skewX(-20deg) translateX(0); }
+  85%, 100% { transform: skewX(-20deg) translateX(480%); }
+}
+@keyframes radar-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes scan-y {
+  from { transform: translateY(-120px); }
+  to { transform: translateY(120px); }
+}
+@keyframes blink-p {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; }
+}
+@keyframes trace-x {
+  0% { transform: translateX(-10%); opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { transform: translateX(1200%); opacity: 0; }
+}
+
+/* NOTE: The `prefers-reduced-motion` block was intentionally removed so all
+   animations run regardless of the visitor's OS setting (see FORCE_MOTION in
+   src/lib/motion-pref.ts). To restore accessibility, flip that constant AND
+   reinstate a reduced-motion media query here. */

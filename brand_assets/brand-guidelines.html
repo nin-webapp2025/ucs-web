@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=1440, initial-scale=1" />
+<title>UCS Premier Consults LTD — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    /* core (from logo) */
+    --ucs-blue:#0A8CC0; --ucs-sky:#0794D9; --ucs-azure:#076CB0;
+    --ucs-navy:#033C81; --ucs-ink:#0B4790; --ucs-cream:#FDF9F0;
+    /* extended */
+    --midnight:#060B1A; --inknavy:#0A1330; --cyan:#22D3EE; --amber:#F5A623;
+    --verdant:#16A34A; --slate900:#0F172A; --slate600:#475569;
+    --cloud:#E6ECF5; --slate200:#E2E8F0;
+    /* spacing scale */
+    --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:48px; --s6:72px;
+    --grad:linear-gradient(150deg,var(--ucs-sky) 0%,var(--ucs-azure) 52%,var(--ucs-navy) 100%);
+    --hair:rgba(34,211,238,.16);
+    --panel:rgba(255,255,255,.022);
+    --panel-line:rgba(120,180,220,.14);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  body{
+    width:1440px; font-family:"Inter",system-ui,sans-serif; color:var(--cloud);
+    background:
+      radial-gradient(1200px 700px at 82% -6%, rgba(7,148,217,.16), transparent 60%),
+      radial-gradient(1000px 640px at 4% 108%, rgba(3,60,129,.28), transparent 62%),
+      linear-gradient(180deg,var(--midnight) 0%, #070D20 55%, var(--inknavy) 100%);
+  }
+  /* blueprint grid overlay on the sheet */
+  .sheet{position:relative; padding:36px;}
+  .sheet::before{
+    content:""; position:absolute; inset:36px; pointer-events:none; z-index:0;
+    background-image:
+      linear-gradient(rgba(120,190,230,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,190,230,.05) 1px, transparent 1px),
+      linear-gradient(rgba(120,190,230,.09) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(120,190,230,.09) 1px, transparent 1px);
+    background-size:32px 32px,32px 32px,160px 160px,160px 160px;
+    -webkit-mask-image:radial-gradient(120% 100% at 50% 0%, #000 55%, transparent 100%);
+            mask-image:radial-gradient(120% 100% at 50% 0%, #000 55%, transparent 100%);
+  }
+  /* drawing border frame + registration marks */
+  .frame{
+    position:relative; z-index:1; border:1px solid rgba(34,211,238,.28);
+    border-radius:6px; padding:clamp(40px,4vw,56px);
+    box-shadow:0 0 0 1px rgba(3,60,129,.35) inset, 0 40px 120px -40px rgba(0,0,0,.8);
+  }
+  .reg{position:absolute; width:16px; height:16px; border:1px solid rgba(34,211,238,.55); z-index:2}
+  .reg::after{content:""; position:absolute; inset:6px; background:rgba(34,211,238,.55); border-radius:50%}
+  .reg.tl{top:-8px;left:-8px} .reg.tr{top:-8px;right:-8px}
+  .reg.bl{bottom:-8px;left:-8px} .reg.br{bottom:-8px;right:-8px}
+
+  .eyebrow{font-family:"Space Grotesk",monospace; text-transform:uppercase; letter-spacing:.22em; font-size:12px; color:var(--cyan); font-weight:500}
+  .mono{font-family:"Space Grotesk",monospace}
+  h1,h2,h3,.disp{font-family:"Poppins",sans-serif}
+
+  /* ---------- header ---------- */
+  .head{display:grid; grid-template-columns:1.3fr .9fr; gap:var(--s5); align-items:stretch; padding-bottom:var(--s5); border-bottom:1px solid var(--panel-line)}
+  .brandline{display:flex; align-items:center; gap:22px}
+  .logo-plate{background:var(--ucs-cream); border-radius:14px; padding:14px; width:126px; height:126px; display:flex; align-items:center; justify-content:center; box-shadow:0 18px 40px -18px rgba(7,148,217,.5), 0 0 0 1px rgba(255,255,255,.06)}
+  .logo-plate img{width:100%; height:100%; object-fit:contain; display:block}
+  .brandtxt .eyebrow{margin-bottom:10px}
+  .brandtxt h1{font-size:34px; line-height:1.05; font-weight:700; letter-spacing:-.02em; color:#fff}
+  .brandtxt .doc{margin-top:8px; font-size:15px; color:var(--cloud); opacity:.72}
+  .tagline{margin-top:26px; font-family:"Poppins"; font-weight:600; font-size:19px; letter-spacing:-.01em;
+    background:linear-gradient(90deg,#8fe6ff,#41b7ff 46%,#7ea6ff); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .tagline .dot{color:var(--cyan); -webkit-text-fill-color:var(--cyan); margin:0 8px; opacity:.7}
+
+  /* titleblock (mini, header-right) */
+  .titleblock{border:1px solid var(--panel-line); border-radius:10px; overflow:hidden; align-self:center; background:var(--panel)}
+  .tb-row{display:grid; grid-template-columns:auto 1fr; border-bottom:1px solid var(--panel-line)}
+  .tb-row:last-child{border-bottom:0}
+  .tb-k,.tb-v{padding:11px 16px; font-size:12.5px}
+  .tb-k{font-family:"Space Grotesk"; text-transform:uppercase; letter-spacing:.14em; color:var(--cyan); border-right:1px solid var(--panel-line); background:rgba(34,211,238,.04); white-space:nowrap}
+  .tb-v{color:var(--cloud); font-weight:500}
+
+  /* ---------- section scaffold ---------- */
+  section{padding-top:var(--s6)}
+  .sec-head{display:flex; align-items:baseline; gap:18px; margin-bottom:var(--s4)}
+  .sec-head .tag{font-family:"Space Grotesk"; font-weight:700; font-size:12px; letter-spacing:.14em; color:var(--midnight); background:var(--cyan); padding:5px 10px; border-radius:5px; text-transform:uppercase}
+  .sec-head h2{font-size:23px; font-weight:600; color:#fff; letter-spacing:-.01em; white-space:nowrap}
+  .sec-head .rule{flex:1; height:1px; background:linear-gradient(90deg,var(--panel-line),transparent)}
+  .sec-head .ref{font-family:"Space Grotesk"; font-size:11px; letter-spacing:.16em; color:var(--slate600); text-transform:uppercase}
+
+  .panel{background:var(--panel); border:1px solid var(--panel-line); border-radius:14px; padding:var(--s4)}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:var(--s3)}
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:var(--s3)}
+
+  /* ---------- logo section ---------- */
+  .logo-grid{display:grid; grid-template-columns:1fr 1fr 1fr; gap:var(--s3)}
+  .lcard{background:var(--panel); border:1px solid var(--panel-line); border-radius:14px; padding:var(--s3); display:flex; flex-direction:column; gap:14px}
+  .lcard .cap{font-family:"Space Grotesk"; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--cyan)}
+  .lcard .sub{font-size:12.5px; color:var(--cloud); opacity:.66; line-height:1.5}
+  .stage{border-radius:10px; height:150px; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative}
+  .stage.light{background:var(--ucs-cream)}
+  .stage.dark{background:linear-gradient(160deg,var(--midnight),var(--inknavy)); border:1px solid var(--panel-line)}
+  .stage img{width:74%; height:74%; object-fit:contain}
+  .stage.dark .knock{background:var(--ucs-cream); border-radius:10px; padding:10px 14px; display:flex}
+  .stage.dark .knock img{width:150px; height:64px}
+  .badge{position:absolute; top:10px; right:10px; font-family:"Space Grotesk"; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--amber); border:1px solid rgba(245,166,35,.4); border-radius:20px; padding:3px 9px; background:rgba(245,166,35,.08)}
+  /* favicon */
+  .fav{width:78px; height:78px; border-radius:18px; background:linear-gradient(160deg,var(--ucs-navy),var(--midnight)); display:flex; align-items:center; justify-content:center; box-shadow:0 12px 30px -12px rgba(7,148,217,.6), inset 0 0 0 1px rgba(34,211,238,.18)}
+  .fav b{font-family:"Poppins"; font-weight:700; font-size:46px; line-height:1; background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .fav-row{display:flex; align-items:center; gap:18px}
+  /* clear space */
+  .clearbox{position:relative; background:var(--ucs-cream); border-radius:10px; padding:34px; height:150px; display:flex; align-items:center; justify-content:center}
+  .clearbox .guide{position:absolute; inset:18px; border:1.5px dashed rgba(3,60,129,.4); border-radius:6px}
+  .clearbox img{height:82px; object-fit:contain; z-index:1}
+  .dim{position:absolute; font-family:"Space Grotesk"; font-size:10px; letter-spacing:.1em; color:var(--ucs-navy); background:var(--ucs-cream); padding:0 5px}
+  .dim.t{top:11px; left:50%; transform:translateX(-50%)}
+  .dim.l{left:-6px; top:50%; transform:translateY(-50%) rotate(-90deg)}
+
+  .rules{display:grid; grid-template-columns:1fr 1fr; gap:var(--s3); margin-top:var(--s3)}
+  .rulecol h4{font-family:"Space Grotesk"; font-size:12px; letter-spacing:.12em; text-transform:uppercase; margin-bottom:12px}
+  .rulecol.do h4{color:var(--verdant)} .rulecol.dont h4{color:#F87171}
+  .rulecol li{list-style:none; font-size:13.5px; line-height:1.55; color:var(--cloud); opacity:.82; padding-left:22px; position:relative; margin-bottom:8px}
+  .rulecol.do li::before{content:"✓"; position:absolute; left:0; color:var(--verdant); font-weight:700}
+  .rulecol.dont li::before{content:"✕"; position:absolute; left:0; color:#F87171; font-weight:700}
+
+  /* ---------- color ---------- */
+  .swatches{display:grid; grid-template-columns:repeat(3,1fr); gap:var(--s3)}
+  .sw{border-radius:13px; overflow:hidden; border:1px solid var(--panel-line); background:var(--panel)}
+  .sw .chip{height:96px; position:relative}
+  .sw .meta{padding:14px 16px}
+  .sw .tok{font-family:"Space Grotesk"; font-size:12px; letter-spacing:.06em; color:var(--cyan)}
+  .sw .nm{font-family:"Poppins"; font-weight:600; font-size:15px; color:#fff; margin:3px 0 6px}
+  .sw .hex{font-family:"Space Grotesk"; font-size:13px; letter-spacing:.08em; color:var(--cloud); opacity:.72; text-transform:uppercase}
+  .sw .note{font-size:11.5px; color:var(--cloud); opacity:.55; margin-top:7px; line-height:1.45}
+  .sw .chip.border-in{box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)}
+
+  .ext{display:grid; grid-template-columns:repeat(3,1fr); gap:14px 22px; margin-top:var(--s3)}
+  .extrow{display:flex; align-items:center; gap:13px}
+  .extdot{width:34px; height:34px; border-radius:9px; flex:none; box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+  .extrow .tok{font-family:"Space Grotesk"; font-size:12px; color:var(--cyan); letter-spacing:.04em}
+  .extrow .nm{font-size:13px; color:#fff; font-weight:500}
+  .extrow .hex{font-family:"Space Grotesk"; font-size:11.5px; color:var(--cloud); opacity:.6}
+  .extrow .txt{display:flex; flex-direction:column; gap:1px}
+
+  .gradbar{height:74px; border-radius:12px; background:var(--grad); position:relative; margin-top:6px; box-shadow:0 14px 34px -16px rgba(7,148,217,.55)}
+  .gradbar .stop{position:absolute; bottom:10px; font-family:"Space Grotesk"; font-size:11px; letter-spacing:.06em; color:#fff; text-shadow:0 1px 3px rgba(0,0,0,.5)}
+  .gradbar .s1{left:16px} .gradbar .s2{left:50%; transform:translateX(-50%)} .gradbar .s3{right:16px}
+  .ratio{display:flex; height:34px; border-radius:8px; overflow:hidden; margin-top:14px; font-family:"Space Grotesk"; font-size:11px; letter-spacing:.08em}
+  .ratio span{display:flex; align-items:center; justify-content:center; color:#fff}
+  .ratio .r60{flex:6; background:var(--inknavy); color:var(--cloud)}
+  .ratio .r30{flex:3; background:var(--ucs-azure)}
+  .ratio .r10{flex:1; background:var(--cyan); color:var(--midnight)}
+
+  /* ---------- typography ---------- */
+  .typ{display:grid; grid-template-columns:repeat(3,1fr); gap:var(--s3)}
+  .tcard{background:var(--panel); border:1px solid var(--panel-line); border-radius:14px; padding:var(--s3)}
+  .tcard .role{font-family:"Space Grotesk"; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--cyan)}
+  .tcard .fname{font-family:"Poppins"; font-weight:600; font-size:20px; color:#fff; margin:4px 0 2px}
+  .tcard .wts{font-size:12px; color:var(--cloud); opacity:.6; margin-bottom:16px}
+  .tcard .aa{font-size:64px; line-height:1; color:#fff; margin-bottom:10px}
+  .tcard .samp{font-size:14px; color:var(--cloud); opacity:.8; line-height:1.6}
+  .f-pop{font-family:"Poppins"} .f-space{font-family:"Space Grotesk"} .f-inter{font-family:"Inter"}
+  .tcard.eg .aa{letter-spacing:.16em; text-transform:uppercase; font-size:30px; color:var(--cyan)}
+
+  .scale{margin-top:var(--s3); border-top:1px solid var(--panel-line); padding-top:var(--s3)}
+  .scale .srow{display:flex; align-items:baseline; gap:18px; padding:7px 0; border-bottom:1px solid rgba(120,180,220,.06)}
+  .scale .srow:last-child{border-bottom:0}
+  .scale .lbl{font-family:"Space Grotesk"; font-size:11px; color:var(--cyan); width:52px; flex:none; letter-spacing:.08em}
+  .scale .rem{font-family:"Space Grotesk"; font-size:11px; color:var(--cloud); opacity:.5; width:70px; flex:none}
+  .scale .spec{font-family:"Poppins"; color:#fff; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+
+  /* ---------- voice ---------- */
+  .chips{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:var(--s3)}
+  .chip-t{font-family:"Space Grotesk"; font-size:12.5px; letter-spacing:.03em; color:var(--cloud); border:1px solid var(--panel-line); background:rgba(34,211,238,.05); padding:7px 14px; border-radius:30px}
+  .words{display:grid; grid-template-columns:1fr 1fr; gap:var(--s3)}
+  .wbox{border-radius:12px; padding:18px 20px}
+  .wbox.use{background:rgba(22,163,74,.08); border:1px solid rgba(22,163,74,.25)}
+  .wbox.avoid{background:rgba(248,113,113,.06); border:1px solid rgba(248,113,113,.22)}
+  .wbox h4{font-family:"Space Grotesk"; font-size:11px; letter-spacing:.14em; text-transform:uppercase; margin-bottom:12px}
+  .wbox.use h4{color:var(--verdant)} .wbox.avoid h4{color:#F87171}
+  .wbox .list{display:flex; flex-wrap:wrap; gap:8px}
+  .wbox .w{font-family:"Poppins"; font-weight:500; font-size:14px; color:#fff}
+  .wbox.avoid .w{color:var(--cloud); opacity:.6; text-decoration:line-through; text-decoration-color:rgba(248,113,113,.5)}
+  .tonebar{margin-top:var(--s3); font-size:14px; line-height:1.65; color:var(--cloud); opacity:.82}
+  .tonebar b{color:#fff; font-weight:600}
+
+  /* ---------- imagery ---------- */
+  .moods{display:grid; grid-template-columns:repeat(3,1fr); gap:var(--s3)}
+  .mtile{height:150px; border-radius:12px; position:relative; overflow:hidden; border:1px solid var(--panel-line); display:flex; align-items:flex-end; padding:14px}
+  .mtile .ml{position:relative; z-index:2; font-family:"Space Grotesk"; font-size:12px; letter-spacing:.1em; text-transform:uppercase; color:#fff; text-shadow:0 1px 4px rgba(0,0,0,.6)}
+  .mtile::after{content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(6,11,26,.72), transparent 65%)}
+  .m-golden{background:linear-gradient(135deg,#F5A623,#B45309 55%,#3a2a12)}
+  .m-blueprint{background:linear-gradient(135deg,#076CB0,#033C81 60%,#060B1A)}
+  .m-blueprint::before{content:""; position:absolute; inset:0; opacity:.4; background-image:linear-gradient(rgba(34,211,238,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(34,211,238,.5) 1px,transparent 1px); background-size:22px 22px}
+  .m-bim{background:radial-gradient(circle at 30% 30%,#22D3EE33,transparent 60%),linear-gradient(160deg,#0A1330,#060B1A)}
+  .m-bim::before{content:""; position:absolute; inset:14px; border:1px solid rgba(34,211,238,.45); transform:perspective(300px) rotateX(46deg) rotateZ(6deg); border-radius:4px}
+  .moodmeta{display:grid; grid-template-columns:1fr 1fr 1fr; gap:var(--s3); margin-top:var(--s3)}
+  .mm h4{font-family:"Space Grotesk"; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--cyan); margin-bottom:9px}
+  .mm p{font-size:13px; line-height:1.55; color:var(--cloud); opacity:.78}
+
+  /* ---------- elements / application ---------- */
+  .appgrid{display:grid; grid-template-columns:1.15fr 1fr; gap:var(--s3); align-items:start}
+  .btnrow{display:flex; align-items:center; gap:16px; flex-wrap:wrap; margin-bottom:20px}
+  .btn{font-family:"Poppins"; font-weight:600; font-size:14px; border-radius:9px; padding:13px 24px; border:0; cursor:pointer; letter-spacing:.01em}
+  .btn.primary{background:var(--grad); color:#fff; box-shadow:0 12px 26px -12px rgba(7,148,217,.7)}
+  .btn.ghost{background:transparent; color:var(--cloud); border:1px solid rgba(34,211,238,.4)}
+  .btn.amber{background:var(--amber); color:#3a2405; box-shadow:0 12px 26px -12px rgba(245,166,35,.55)}
+  .btn-note{font-family:"Space Grotesk"; font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--slate600); margin-bottom:10px}
+  .lockup{border-top:1px solid var(--panel-line); padding-top:18px; margin-top:4px}
+  .lockup .lk-eye{font-family:"Space Grotesk"; text-transform:uppercase; letter-spacing:.22em; font-size:12px; color:var(--cyan); font-weight:500}
+  .lockup h3{font-family:"Poppins"; font-weight:700; font-size:26px; color:#fff; letter-spacing:-.02em; margin:8px 0 6px}
+  .lockup p{font-size:13.5px; line-height:1.6; color:var(--cloud); opacity:.72; max-width:92%}
+  .stat-strip{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border:1px solid var(--panel-line); border-radius:12px; overflow:hidden}
+  .stat{padding:20px; border-right:1px solid var(--panel-line); border-bottom:1px solid var(--panel-line)}
+  .stat:nth-child(3n){border-right:0} .stat:nth-child(n+4){border-bottom:0}
+  .stat .num{font-family:"Poppins"; font-weight:700; font-size:30px; line-height:1; background:linear-gradient(120deg,#8fe6ff,#0794D9); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .stat .lab{font-family:"Space Grotesk"; font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--cloud); opacity:.62; margin-top:8px; line-height:1.4}
+
+  /* ---------- footer titleblock ---------- */
+  .foot{margin-top:var(--s6); border:1px solid var(--panel-line); border-radius:12px; overflow:hidden}
+  .foot-top{display:grid; grid-template-columns:1.6fr 1fr 1fr; }
+  .foot-cell{padding:18px 22px; border-right:1px solid var(--panel-line)}
+  .foot-cell:last-child{border-right:0}
+  .foot-cell .k{font-family:"Space Grotesk"; font-size:10.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--cyan); margin-bottom:7px}
+  .foot-cell .v{font-family:"Poppins"; font-weight:600; font-size:15px; color:#fff}
+  .foot-cell .v small{display:block; font-family:"Inter"; font-weight:400; font-size:12px; color:var(--cloud); opacity:.6; margin-top:3px}
+  .foot-bar{display:flex; align-items:center; justify-content:space-between; padding:14px 22px; border-top:1px solid var(--panel-line); background:rgba(34,211,238,.03)}
+  .foot-bar .sot{font-size:12.5px; color:var(--cloud); opacity:.7}
+  .foot-bar .rev{font-family:"Space Grotesk"; font-size:11px; letter-spacing:.12em; color:var(--cyan); text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="sheet">
+  <div class="frame">
+    <span class="reg tl"></span><span class="reg tr"></span><span class="reg bl"></span><span class="reg br"></span>
+
+    <!-- ============ HEADER ============ -->
+    <header class="head">
+      <div>
+        <div class="brandline">
+          <div class="logo-plate"><img src="/brand_assets/ucs-logo.jpeg" alt="UCS Premier Consults LTD logo" /></div>
+          <div class="brandtxt">
+            <div class="eyebrow">Brand Guidelines · Visual Identity System</div>
+            <h1>UCS Premier<br/>Consults LTD</h1>
+            <div class="doc">Engineering &amp; Infrastructure Consultancy · Nigeria</div>
+          </div>
+        </div>
+        <div class="tagline">Innovative Thinking<span class="dot">·</span>Technical Excellence<span class="dot">·</span>Reliable Delivery</div>
+      </div>
+      <div class="titleblock">
+        <div class="tb-row"><div class="tb-k">Client</div><div class="tb-v">UCS Premier Consults LTD</div></div>
+        <div class="tb-row"><div class="tb-k">Document</div><div class="tb-v">Brand Identity Guidelines</div></div>
+        <div class="tb-row"><div class="tb-k">Source</div><div class="tb-v">Official logo + Content.docx</div></div>
+        <div class="tb-row"><div class="tb-k">Revision</div><div class="tb-v">1.0</div></div>
+        <div class="tb-row"><div class="tb-k">Date</div><div class="tb-v">2026-07-14</div></div>
+        <div class="tb-row"><div class="tb-k">Sheet</div><div class="tb-v">01 — Master</div></div>
+      </div>
+    </header>
+
+    <!-- ============ LOGO ============ -->
+    <section>
+      <div class="sec-head"><span class="tag">Logo</span><h2>The Mark</h2><span class="rule"></span><span class="ref">Ref · Identity</span></div>
+      <div class="logo-grid">
+        <div class="lcard">
+          <div class="stage light"><img src="/brand_assets/ucs-logo.jpeg" alt="Primary logo on cream"/></div>
+          <div><div class="cap">Primary · on Cream / White</div><div class="sub">Full-colour mark. Default for light sections. Use as-is — do not recolour.</div></div>
+        </div>
+        <div class="lcard">
+          <div class="stage dark"><span class="badge">Export pending</span><div class="knock"><img src="/brand_assets/ucs-logo.jpeg" alt="Logo on dark via cream plate"/></div></div>
+          <div><div class="cap">On Dark · Cinematic</div><div class="sub">On Midnight, place on a cream plate. A reversed / knockout export (Cloud wordmark) is still to be produced.</div></div>
+        </div>
+        <div class="lcard">
+          <div class="stage dark"><div class="fav-row"><span class="fav"><b>C</b></span><span class="fav" style="width:52px;height:52px;border-radius:12px"><b style="font-size:30px">C</b></span></div></div>
+          <div><div class="cap">Favicon · App Icon</div><div class="sub">Standalone “C” monogram in the brand gradient on Deep Navy / Midnight.</div></div>
+        </div>
+      </div>
+      <div class="rules">
+        <div class="lcard" style="padding:0;overflow:hidden">
+          <div class="clearbox">
+            <span class="guide"></span>
+            <span class="dim t">clear space ≥ height of “C” bowl</span>
+            <span class="dim l">≥ bowl</span>
+            <img src="/brand_assets/ucs-logo.jpeg" alt="Logo clear space"/>
+          </div>
+          <div style="padding:16px 20px"><div class="cap">Clear Space &amp; Minimum Size</div><div class="sub">Keep padding on all sides ≥ the height of the “C” bowl. Never crowd the mark with type, rules, or imagery.</div></div>
+        </div>
+        <div class="panel">
+          <div class="rules" style="margin-top:0">
+            <div class="rulecol do">
+              <h4>Do</h4>
+              <ul>
+                <li>Use the official mark on cream or white</li>
+                <li>Reverse to Cloud/white on the dark hero &amp; footer</li>
+                <li>Scrim busy photos before placing the logo</li>
+                <li>Keep the “C” gradient direction intact</li>
+              </ul>
+            </div>
+            <div class="rulecol dont">
+              <h4>Don't</h4>
+              <ul>
+                <li>Recolour outside the brand blues</li>
+                <li>Stretch, skew, or rotate the mark</li>
+                <li>Add drop shadows or outlines</li>
+                <li>Place the full-colour mark on busy photography</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COLOR ============ -->
+    <section>
+      <div class="sec-head"><span class="tag">Color</span><h2>Palette System</h2><span class="rule"></span><span class="ref">Ref · Sampled from logo</span></div>
+      <div class="swatches">
+        <div class="sw"><div class="chip" style="background:#0A8CC0"></div><div class="meta"><div class="tok">--ucs-blue</div><div class="nm">UCS Blue</div><div class="hex">#0A8CC0</div><div class="note">Primary. Links, primary buttons, highlights.</div></div></div>
+        <div class="sw"><div class="chip" style="background:#0794D9"></div><div class="meta"><div class="tok">--ucs-sky</div><div class="nm">UCS Sky</div><div class="hex">#0794D9</div><div class="note">Brightest “C” top. Gradients, hovers, glows.</div></div></div>
+        <div class="sw"><div class="chip" style="background:#076CB0"></div><div class="meta"><div class="tok">--ucs-azure</div><div class="nm">UCS Azure</div><div class="hex">#076CB0</div><div class="note">Mid “C” tone. Gradient partner, secondary UI.</div></div></div>
+        <div class="sw"><div class="chip" style="background:#033C81"></div><div class="meta"><div class="tok">--ucs-navy</div><div class="nm">Deep Navy</div><div class="hex">#033C81</div><div class="note">Base of gradient. Headings on light, anchor.</div></div></div>
+        <div class="sw"><div class="chip" style="background:#0B4790"></div><div class="meta"><div class="tok">--ucs-ink</div><div class="nm">UCS Ink</div><div class="hex">#0B4790</div><div class="note">Wordmark navy. Body headings, footer.</div></div></div>
+        <div class="sw"><div class="chip border-in" style="background:#FDF9F0"></div><div class="meta"><div class="tok">--ucs-cream</div><div class="nm">Cream</div><div class="hex">#FDF9F0</div><div class="note">Exact logo background. Light sections, cards.</div></div></div>
+      </div>
+
+      <div class="grid2" style="margin-top:var(--s5); align-items:start">
+        <div class="panel">
+          <div class="eyebrow" style="margin-bottom:18px">Extended System · context accents</div>
+          <div class="ext">
+            <div class="extrow"><span class="extdot" style="background:#060B1A"></span><span class="txt"><span class="tok">--ucs-midnight</span><span class="nm">Midnight</span><span class="hex">#060B1A</span></span></div>
+            <div class="extrow"><span class="extdot" style="background:#0A1330"></span><span class="txt"><span class="tok">--ucs-inknavy</span><span class="nm">Ink Navy</span><span class="hex">#0A1330</span></span></div>
+            <div class="extrow"><span class="extdot" style="background:#22D3EE"></span><span class="txt"><span class="tok">--ucs-cyan</span><span class="nm">Signal Cyan</span><span class="hex">#22D3EE</span></span></div>
+            <div class="extrow"><span class="extdot" style="background:#F5A623"></span><span class="txt"><span class="tok">--ucs-amber</span><span class="nm">Engineer Amber</span><span class="hex">#F5A623</span></span></div>
+            <div class="extrow"><span class="extdot" style="background:#16A34A"></span><span class="txt"><span class="tok">--ucs-verdant</span><span class="nm">Verdant</span><span class="hex">#16A34A</span></span></div>
+            <div class="extrow"><span class="extdot" style="background:#0F172A"></span><span class="txt"><span class="tok">--slate-900</span><span class="nm">Slate 900</span><span class="hex">#0F172A</span></span></div>
+            <div class="extrow"><span class="extdot" style="background:#475569"></span><span class="txt"><span class="tok">--slate-600</span><span class="nm">Slate 600</span><span class="hex">#475569</span></span></div>
+            <div class="extrow"><span class="extdot" style="background:#E6ECF5"></span><span class="txt"><span class="tok">--cloud</span><span class="nm">Cloud</span><span class="hex">#E6ECF5</span></span></div>
+            <div class="extrow"><span class="extdot" style="background:#E2E8F0"></span><span class="txt"><span class="tok">--slate-200</span><span class="nm">Slate 200</span><span class="hex">#E2E8F0</span></span></div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="eyebrow" style="margin-bottom:14px">Signature Gradient · mirrors the “C”</div>
+          <div class="gradbar"><span class="stop s1">#0794D9</span><span class="stop s2">#076CB0</span><span class="stop s3">#033C81</span></div>
+          <div class="sub" style="font-size:12.5px;color:var(--cloud);opacity:.66;margin-top:12px;line-height:1.5">UCS Sky → UCS Azure → Deep Navy, top-to-bottom. The one signature gradient across hero, buttons, and accents.</div>
+          <div class="eyebrow" style="margin:22px 0 10px">Usage · 60 / 30 / 10</div>
+          <div class="ratio"><span class="r60">60% Neutral</span><span class="r30">30% Blue</span><span class="r10">10%</span></div>
+          <div class="sub" style="font-size:12.5px;color:var(--cloud);opacity:.66;margin-top:12px;line-height:1.5">~60% neutral (Cream / white / Midnight), ~30% brand blue, ~10% accent. One accent per section — never Cyan and Amber together. Verify WCAG AA (4.5:1 body).</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TYPOGRAPHY ============ -->
+    <section>
+      <div class="sec-head"><span class="tag">Type</span><h2>Typography</h2><span class="rule"></span><span class="ref">Ref · Google Fonts</span></div>
+      <div class="typ">
+        <div class="tcard">
+          <div class="role">Display · Headings</div>
+          <div class="fname f-pop">Poppins</div>
+          <div class="wts">Weights 600 · 700</div>
+          <div class="aa f-pop" style="font-weight:700">Aa</div>
+          <div class="samp f-pop" style="font-weight:600">Engineering tomorrow's infrastructure, today.</div>
+        </div>
+        <div class="tcard eg">
+          <div class="role">Eyebrow · Labels · Data</div>
+          <div class="fname f-space">Space Grotesk</div>
+          <div class="wts">Weights 500 · 700</div>
+          <div class="aa f-space">Technical Excellence</div>
+          <div class="samp f-space">01 · CIVIL &nbsp; 02 · STRUCTURAL &nbsp; 03 · WATER</div>
+        </div>
+        <div class="tcard">
+          <div class="role">Body · UI</div>
+          <div class="fname f-inter">Inter</div>
+          <div class="wts">Weights 400 · 500 · 600</div>
+          <div class="aa f-inter" style="font-weight:400">Aa</div>
+          <div class="samp f-inter">Multidisciplinary engineering consultancy delivering integrated solutions from feasibility to final delivery.</div>
+        </div>
+      </div>
+      <div class="panel scale" style="margin-top:var(--s3)">
+        <div class="eyebrow" style="margin-bottom:16px">Type Scale · rem · display line-height 1.1–1.2 · body 1.5–1.6</div>
+        <div class="srow"><span class="lbl">H1</span><span class="rem">3.5 rem</span><span class="spec" style="font-size:38px">Reliable Delivery</span></div>
+        <div class="srow"><span class="lbl">H2</span><span class="rem">2.5 rem</span><span class="spec" style="font-size:30px">Comprehensive services under one roof</span></div>
+        <div class="srow"><span class="lbl">H3</span><span class="rem">2.0 rem</span><span class="spec" style="font-size:25px">Civil &amp; Structural Engineering</span></div>
+        <div class="srow"><span class="lbl">H4</span><span class="rem">1.5 rem</span><span class="spec" style="font-size:20px">Construction Supervision</span></div>
+        <div class="srow"><span class="lbl">Lead</span><span class="rem">1.25 rem</span><span class="spec" style="font-size:17px;font-weight:500">Project Management &amp; Contract Administration</span></div>
+        <div class="srow"><span class="lbl">Body</span><span class="rem">1.0 rem</span><span class="spec f-inter" style="font-size:15px;font-weight:400;opacity:.85">Delivered by a multidisciplinary team of engineers and specialists.</span></div>
+        <div class="srow"><span class="lbl">Small</span><span class="rem">0.875 rem</span><span class="spec f-space" style="font-size:12px;letter-spacing:.14em;color:var(--cyan)">EYEBROW · UPPERCASE · 0.08EM TRACKING</span></div>
+      </div>
+    </section>
+
+    <!-- ============ VOICE ============ -->
+    <section>
+      <div class="sec-head"><span class="tag">Voice</span><h2>Voice &amp; Personality</h2><span class="rule"></span><span class="ref">Ref · Tone of voice</span></div>
+      <div class="grid2" style="align-items:start">
+        <div class="panel">
+          <div class="eyebrow" style="margin-bottom:16px">Personality</div>
+          <div class="chips">
+            <span class="chip-t">Professional &amp; trustworthy</span>
+            <span class="chip-t">Technically excellent</span>
+            <span class="chip-t">Modern &amp; innovative</span>
+            <span class="chip-t">Cinematic &amp; premium</span>
+            <span class="chip-t">Young &amp; solution-driven</span>
+            <span class="chip-t">Human &amp; client-centered</span>
+          </div>
+          <div class="tonebar"><b>Tone:</b> confident but not boastful; clear, concise, jargon-light for decision-makers, with the depth to reassure engineers. Active voice. Lead with outcomes — <b>“delivered”, “reliable”, “on schedule”</b> — support with capability.</div>
+        </div>
+        <div class="panel">
+          <div class="eyebrow" style="margin-bottom:16px">Vocabulary</div>
+          <div class="words">
+            <div class="wbox use"><h4>Words we use</h4><div class="list"><span class="w">deliver</span><span class="w">engineer</span><span class="w">integrated</span><span class="w">sustainable</span><span class="w">precise</span><span class="w">trusted</span><span class="w">standards</span></div></div>
+            <div class="wbox avoid"><h4>Words we avoid</h4><div class="list"><span class="w">cheap</span><span class="w">basic</span><span class="w">generic</span><span class="w">hype</span><span class="w">guarantee</span></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ IMAGERY ============ -->
+    <section>
+      <div class="sec-head"><span class="tag">Imagery</span><h2>Imagery &amp; Mood</h2><span class="rule"></span><span class="ref">Ref · Visual direction</span></div>
+      <div class="moods">
+        <div class="mtile m-golden"><span class="ml">Golden-hour infrastructure</span></div>
+        <div class="mtile m-blueprint"><span class="ml">Blueprint · engineering blue</span></div>
+        <div class="mtile m-bim"><span class="ml">BIM / GIS · digital</span></div>
+      </div>
+      <div class="moodmeta">
+        <div class="mm"><h4>Lighting</h4><p>Cinematic, directional. Golden-hour warmth over infrastructure; cool blueprint-blue for tech moments; soft even light on professional light sections.</p></div>
+        <div class="mm"><h4>Materials &amp; Texture</h4><p>Concrete, steel, glass, asphalt; blueprint &amp; CAD line work; subtle grid / topographic patterns; matte navy surfaces with fine grain.</p></div>
+        <div class="mm"><h4>Motion &amp; Camera</h4><p>Slow, confident, purposeful — drone aerials, parallax on scroll, animated counters, gentle reveals. Premium restraint, never frantic.</p></div>
+      </div>
+    </section>
+
+    <!-- ============ ELEMENTS / APPLICATION ============ -->
+    <section>
+      <div class="sec-head"><span class="tag">Elements</span><h2>System in Application</h2><span class="rule"></span><span class="ref">Ref · UI &amp; components</span></div>
+      <div class="appgrid">
+        <div class="panel">
+          <div class="btn-note">Buttons &amp; actions</div>
+          <div class="btnrow">
+            <button class="btn primary">Request a Consultation</button>
+            <button class="btn ghost">Explore Services</button>
+            <button class="btn amber">Start a Project</button>
+          </div>
+          <div class="sub" style="font-size:12.5px;color:var(--cloud);opacity:.6;line-height:1.5;margin-bottom:6px">Primary = signature gradient. Ghost = cyan hairline on dark. Amber reserved for a single high-emphasis moment per view. Every control names its outcome — “Request a Consultation”, not “Submit”.</div>
+          <div class="lockup">
+            <div class="lk-eye">Comprehensive · Under One Roof</div>
+            <h3>Section heading lockup</h3>
+            <p>Eyebrow (Space Grotesk, cyan, tracked) sits above a Poppins headline, with Inter body beneath — the standard heading rhythm for every section.</p>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="btn-note">Animated statistics · homepage counters</div>
+          <div class="stat-strip">
+            <div class="stat"><div class="num">50+</div><div class="lab">Projects Delivered</div></div>
+            <div class="stat"><div class="num">15+</div><div class="lab">Years Experience</div></div>
+            <div class="stat"><div class="num">100%</div><div class="lab">Quality &amp; Safety</div></div>
+            <div class="stat"><div class="num">20+</div><div class="lab">Engineers &amp; Experts</div></div>
+            <div class="stat"><div class="num">24/7</div><div class="lab">Client Support</div></div>
+            <div class="stat"><div class="num" style="font-size:20px;padding-top:6px">Nationwide</div><div class="lab">Delivery · Nigeria</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FOOTER TITLEBLOCK ============ -->
+    <div class="foot">
+      <div class="foot-top">
+        <div class="foot-cell"><div class="k">Project</div><div class="v">UCS Premier Consults — Website Identity<small>Hybrid dark-cinematic hero → light professional body</small></div></div>
+        <div class="foot-cell"><div class="k">Fonts</div><div class="v">Poppins · Space Grotesk · Inter<small>Google Fonts — free, fast, web-ready</small></div></div>
+        <div class="foot-cell"><div class="k">Signature Color</div><div class="v">UCS Blue #0A8CC0<small>Gradient #0794D9 → #076CB0 → #033C81</small></div></div>
+      </div>
+      <div class="foot-bar">
+        <span class="sot">Single source of truth for the UCS Premier Consults website build · colours sampled directly from the official logo.</span>
+        <span class="rev">Rev 1.0 · 2026-07-14 · Sheet 01/01</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>
