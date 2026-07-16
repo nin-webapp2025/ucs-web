@@ -60,6 +60,7 @@ export function Hero() {
   const reduce = useReducedMotion()
   const ref = useRef<HTMLElement>(null)
   const globeGate = useNearViewport<HTMLDivElement>("400px")
+  const mobileGlobeGate = useNearViewport<HTMLDivElement>("300px")
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] })
   // Content rises & fades faster than the backdrop — cinematic depth on scroll
   const contentY = useTransform(scrollYProgress, [0, 1], [0, -140])
@@ -135,6 +136,26 @@ export function Hero() {
           />
         </div>
       </motion.div>
+
+      {/* Mobile / tablet globe — a dim, centered ambient planet behind the hero
+          content (the drifting desktop globe below is hidden under lg). */}
+      <div
+        ref={mobileGlobeGate.ref}
+        className="pointer-events-none absolute top-[52%] left-1/2 w-[92vw] max-w-[430px] -translate-x-1/2 -translate-y-1/2 lg:hidden"
+        aria-hidden="true"
+      >
+        <div
+          className="absolute inset-[-14%] rounded-full"
+          style={{ background: "radial-gradient(closest-side, rgba(7,148,217,0.18), transparent 72%)" }}
+        />
+        <div
+          className="absolute inset-[3%] rounded-full"
+          style={{ boxShadow: "inset 0 0 34px 2px rgba(34,211,238,0.12), 0 0 50px 0 rgba(7,148,217,0.16)", border: "1px solid rgba(34,211,238,0.14)" }}
+        />
+        <div className="relative aspect-square w-full opacity-55 [mask-image:radial-gradient(circle_at_center,black_80%,transparent_98%)]">
+          <Globe config={GLOBE_BRAND} className="max-w-none" autoRotate active={mobileGlobeGate.near} />
+        </div>
+      </div>
 
       {/* Nationwide-delivery globe — the hero's motion graphic. As you scroll it
           drifts toward center, scales up, spins with the scroll, then fades out.

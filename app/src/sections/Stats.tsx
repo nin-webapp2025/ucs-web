@@ -45,7 +45,11 @@ export function Stats() {
                       <span className="text-ucs-gradient">{s.suffix}</span>
                     </>
                   ) : (
-                    <span className="text-ucs-gradient">{s.display}</span>
+                    // Word values (e.g. "Nationwide") are sized down so they never
+                    // clip the narrow 2-column cell on mobile.
+                    <span className="text-ucs-gradient block text-[1.45rem] leading-tight sm:text-[1.85rem] md:text-[2.1rem]">
+                      {s.display}
+                    </span>
                   )}
                 </div>
                 <p className="eyebrow relative mt-3 max-w-[22ch] text-[10px] leading-[1.5] tracking-[0.12em] text-cloud/55">
