@@ -49,7 +49,7 @@ export function Management() {
                       alt={`${m.name}, ${m.role}`}
                       loading="lazy"
                       className="size-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
-                      style={{ filter: "grayscale(0.55) contrast(1.06) brightness(0.95) saturate(0.9)" }}
+                      style={{ filter: "contrast(1.03) brightness(0.99)" }}
                     />
                   ) : (
                     <div
@@ -64,12 +64,11 @@ export function Management() {
                       </div>
                     </div>
                   )}
-                  {/* Uniform brand duotone so the varied photos read as one set */}
-                  <div aria-hidden="true" className="absolute inset-0 bg-ucs-navy/30 mix-blend-multiply" />
-                  <div aria-hidden="true" className="absolute inset-0 bg-cyan-sig/10 mix-blend-screen" />
-                  <div aria-hidden="true" className="bg-blueprint absolute inset-0 opacity-15" />
+                  {/* Photos already share a brand-navy studio backdrop; just a
+                      whisper of navy for card cohesion + the text gradient. */}
+                  <div aria-hidden="true" className="absolute inset-0 bg-ucs-navy/12 mix-blend-multiply" />
                   {/* Name + title + WhatsApp sit over the base of the portrait */}
-                  <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-midnight via-midnight/75 to-transparent" />
+                  <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-midnight via-midnight/70 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-5">
                     <h3 className="font-heading text-[17px] font-semibold tracking-[-0.01em] text-white">{m.name}</h3>
                     <p className="eyebrow mt-1.5 text-[9.5px] tracking-[0.16em] text-cyan-sig">{m.role}</p>
