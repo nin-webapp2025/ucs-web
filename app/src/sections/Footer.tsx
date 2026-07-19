@@ -62,12 +62,13 @@ export function Footer() {
   }, [])
 
   return (
-    <footer ref={ref} className="relative overflow-hidden bg-midnight pt-20 text-cloud">
+    <footer ref={ref} className="relative overflow-hidden bg-midnight pt-20 pb-24 text-cloud">
       <div aria-hidden="true" className="glow-line absolute inset-x-0 top-0" />
 
-      {/* 3D globe rising over the footer horizon */}
-      <div ref={globeGate.ref} aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-[-64%] flex justify-center">
-        <div className="relative aspect-square w-[min(1150px,150vw)] [mask-image:radial-gradient(circle_at_50%_35%,black_38%,transparent_60%)]">
+      {/* 3D globe — only its top cap rises behind the content; the rest is pushed
+          below the footer edge and clipped, so there's no empty space under it. */}
+      <div ref={globeGate.ref} aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 flex translate-y-[58%] justify-center">
+        <div className="relative aspect-square w-[min(980px,150vw)] [mask-image:radial-gradient(circle_at_50%_32%,black_40%,transparent_62%)]">
           <Globe config={FOOTER_GLOBE} className="max-w-none" autoRotate active={globeGate.near} />
         </div>
       </div>
@@ -152,8 +153,7 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Big spacer so the globe horizon reads before the legal bar */}
-        <div className="foot-reveal mt-14 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 pb-[clamp(160px,26vw,300px)] sm:flex-row sm:items-center">
+        <div className="foot-reveal mt-14 flex flex-col items-start justify-between gap-3 border-t border-white/10 pt-6 sm:flex-row sm:items-center">
           <p className="text-[12px] text-cloud/45">
             © {new Date().getFullYear()} UCS Premier Consults LTD. All rights reserved.
           </p>
