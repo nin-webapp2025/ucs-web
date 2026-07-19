@@ -33,9 +33,9 @@ export function Management() {
       />
       <Container>
         <SectionHead
-          tag="Leadership"
-          title="The management board"
-          sub="The multidisciplinary team steering UCS Premier Consults — engineering, delivery, and governance under one leadership."
+          tag="Our Team"
+          title="The architectural team"
+          sub="The architects behind UCS Premier Consults — from design leadership to on-site delivery across every project."
         />
         <Stagger className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {management.map((m) => (
@@ -49,6 +49,7 @@ export function Management() {
                       alt={`${m.name}, ${m.role}`}
                       loading="lazy"
                       className="size-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.04]"
+                      style={{ filter: "grayscale(0.55) contrast(1.06) brightness(0.95) saturate(0.9)" }}
                     />
                   ) : (
                     <div
@@ -63,7 +64,10 @@ export function Management() {
                       </div>
                     </div>
                   )}
-                  <div aria-hidden="true" className="bg-blueprint absolute inset-0 opacity-25" />
+                  {/* Uniform brand duotone so the varied photos read as one set */}
+                  <div aria-hidden="true" className="absolute inset-0 bg-ucs-navy/30 mix-blend-multiply" />
+                  <div aria-hidden="true" className="absolute inset-0 bg-cyan-sig/10 mix-blend-screen" />
+                  <div aria-hidden="true" className="bg-blueprint absolute inset-0 opacity-15" />
                   {/* Name + title + WhatsApp sit over the base of the portrait */}
                   <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-midnight via-midnight/75 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-5">

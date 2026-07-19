@@ -9,7 +9,7 @@ import logo from "@/assets/ucs-logo.jpeg"
 const quickLinks = [
   { href: "#services", label: "Services" },
   { href: "#why-us", label: "Why UCS" },
-  { href: "#leadership", label: "Leadership" },
+  { href: "#leadership", label: "Team" },
   { href: "#digital", label: "Digital Innovation" },
   { href: "#projects", label: "Projects" },
   { href: "#contact", label: "Contact" },

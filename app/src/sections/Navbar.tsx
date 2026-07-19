@@ -7,7 +7,7 @@ import logo from "@/assets/ucs-logo.jpeg"
 const links = [
   { href: "#services", label: "Services" },
   { href: "#why-us", label: "Why UCS" },
-  { href: "#leadership", label: "Leadership" },
+  { href: "#leadership", label: "Team" },
   { href: "#digital", label: "Digital" },
   { href: "#projects", label: "Projects" },
   { href: "#careers", label: "Careers" },
