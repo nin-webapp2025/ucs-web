@@ -221,12 +221,12 @@ export type Member = {
 }
 
 export const management: Member[] = [
-  { name: "Muhammad Bashir Abdullahi", role: "Architect & Head of Architectural Department", phone: "+234 803 592 9308", image: "" },
-  { name: "Yusuf Aliyu", role: "Architect", phone: "+234 703 188 6735", image: "" },
-  { name: "Adam Abdulwahid", role: "Site Architect", phone: "+234 903 252 0108", image: "" },
-  { name: "Bala Abubakar Hassan", role: "Site Architect", phone: "+234 806 633 7088", image: "" },
-  { name: "Abubakar Alhassan", role: "Site Architect", phone: "+234 816 235 5381", image: "" },
-  { name: "Sani S. Adoga", role: "Site Architect", phone: "+234 805 405 2888", image: "" },
+  { name: "Muhammad Bashir Abdullahi", role: "Architect & Head of Architectural Department", phone: "+234 803 592 9308", image: "/team/muhammad-bashir-abdullahi.jpeg" },
+  { name: "Yusuf Aliyu", role: "Architect", phone: "+234 703 188 6735", image: "/team/yusuf-aliyu.jpeg" },
+  { name: "Adam Abdulwahid", role: "Site Architect", phone: "+234 903 252 0108", image: "/team/adam-abdulwahid.jpeg" },
+  { name: "Bala Abubakar Hassan", role: "Site Architect", phone: "+234 806 633 7088", image: "/team/bala-abubakar-hassan.jpeg" },
+  { name: "Abubakar Alhassan Sanusi", role: "Site Architect", phone: "+234 816 235 5381", image: "/team/abubakar-alhassan-sanusi.jpeg" },
+  { name: "Sani S. Adoga", role: "Site Architect", phone: "+234 805 405 2888", image: "/team/sani-adoga.jpeg" },
 ]
 
 export const contact = {
