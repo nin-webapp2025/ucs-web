@@ -209,60 +209,23 @@ export const careers = {
   points: ["Internship opportunities", "NYSC placements", "Technical mentoring", "Continuous professional development"],
 }
 
-// Management board — PLACEHOLDERS. Replace name/role/bio/photo/linkedin with
-// real details. Drop a headshot path into `image` (e.g. "/assets/team/name.jpg")
-// and it renders in place of the initials placeholder.
+// Management board. Cards show PHOTO + NAME + TITLE only.
+// To add a headshot: drop the image file into  app/public/team/  and set `image`
+// to its path, e.g.  image: "/team/jane-okafor.jpg". Portrait crops best (4:5).
+// While `image` is empty the card shows an initials placeholder. Array order = display order.
 export type Member = {
   name: string
   role: string
-  bio: string
   image?: string
-  linkedin?: string
 }
 
 export const management: Member[] = [
-  {
-    name: "Board Member One",
-    role: "Managing Director / CEO",
-    bio: "Placeholder bio — professional background, years of experience, and areas of engineering leadership.",
-    image: "",
-    linkedin: "#",
-  },
-  {
-    name: "Board Member Two",
-    role: "Executive Director",
-    bio: "Placeholder bio — professional background, years of experience, and areas of engineering leadership.",
-    image: "",
-    linkedin: "#",
-  },
-  {
-    name: "Board Member Three",
-    role: "Technical Director, Engineering",
-    bio: "Placeholder bio — professional background, years of experience, and areas of engineering leadership.",
-    image: "",
-    linkedin: "#",
-  },
-  {
-    name: "Board Member Four",
-    role: "Director, Projects & Delivery",
-    bio: "Placeholder bio — professional background, years of experience, and areas of engineering leadership.",
-    image: "",
-    linkedin: "#",
-  },
-  {
-    name: "Board Member Five",
-    role: "Director, Business Development",
-    bio: "Placeholder bio — professional background, years of experience, and areas of engineering leadership.",
-    image: "",
-    linkedin: "#",
-  },
-  {
-    name: "Board Member Six",
-    role: "Company Secretary / Legal Counsel",
-    bio: "Placeholder bio — professional background, years of experience, and areas of engineering leadership.",
-    image: "",
-    linkedin: "#",
-  },
+  { name: "Board Member One", role: "Managing Director / CEO", image: "" },
+  { name: "Board Member Two", role: "Executive Director", image: "" },
+  { name: "Board Member Three", role: "Technical Director, Engineering", image: "" },
+  { name: "Board Member Four", role: "Director, Projects & Delivery", image: "" },
+  { name: "Board Member Five", role: "Director, Business Development", image: "" },
+  { name: "Board Member Six", role: "Company Secretary / Legal Counsel", image: "" },
 ]
 
 export const contact = {
