@@ -270,6 +270,9 @@ export const contact = {
   phone: "+234 813 846 5702",
   email: "Info@ucsconsults.com",
   hours: "Mon–Fri, 8:00 — 17:00 WAT", // placeholder — confirm business hours
+  // Datunchi Plaza, Jabi, Abuja (9.0603520, 7.4481664)
+  mapEmbedSrc: "https://www.google.com/maps?q=9.0603520,7.4481664&z=16&hl=en&output=embed",
+  mapLink: "https://maps.app.goo.gl/ktdbEMFDsapqPHat5",
   projectTypes: [
     "Roads / Transportation",
     "Bridges & Structures",

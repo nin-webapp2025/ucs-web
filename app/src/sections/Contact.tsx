@@ -46,11 +46,27 @@ export function Contact() {
                   )
                 })}
               </ul>
-              {/* Map placeholder — swap for an embed when the office location is final */}
-              <div className="bg-blueprint relative mt-6 flex h-40 items-center justify-center overflow-hidden rounded-xl border border-border bg-inknavy">
-                <span aria-hidden="true" className="blink absolute top-[38%] left-[52%] size-2 rounded-full bg-cyan-sig shadow-[0_0_10px_rgba(34,211,238,0.9)]" />
-                <span className="eyebrow text-[10px] tracking-[0.2em] text-cloud/40">Map placeholder</span>
+              {/* Live Google Map — Datunchi Plaza, Jabi, Abuja. Dark-toned to match
+                  the theme via an invert/hue-rotate filter. */}
+              <div className="relative mt-6 h-44 overflow-hidden rounded-xl border border-border bg-inknavy">
+                <iframe
+                  title="UCS Premier Consults office — Datunchi Plaza, Jabi, Abuja"
+                  src={contact.mapEmbedSrc}
+                  className="absolute inset-0 size-full"
+                  style={{ border: 0, filter: "invert(0.9) hue-rotate(180deg) brightness(0.95) contrast(0.9) saturate(0.85)" }}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
               </div>
+              <a
+                href={contact.mapLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-3 inline-flex items-center gap-1.5 text-[12.5px] font-medium text-cyan-sig transition-[gap,color] duration-200 hover:gap-2.5 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-sig"
+              >
+                View larger map on Google Maps →
+              </a>
             </GlassCard>
           </Reveal>
         </div>
