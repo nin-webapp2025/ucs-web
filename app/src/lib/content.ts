@@ -216,16 +216,17 @@ export const careers = {
 export type Member = {
   name: string
   role: string
+  phone?: string // display form; the WhatsApp/tel link is derived from the digits
   image?: string
 }
 
 export const management: Member[] = [
-  { name: "Board Member One", role: "Managing Director / CEO", image: "" },
-  { name: "Board Member Two", role: "Executive Director", image: "" },
-  { name: "Board Member Three", role: "Technical Director, Engineering", image: "" },
-  { name: "Board Member Four", role: "Director, Projects & Delivery", image: "" },
-  { name: "Board Member Five", role: "Director, Business Development", image: "" },
-  { name: "Board Member Six", role: "Company Secretary / Legal Counsel", image: "" },
+  { name: "Muhammad Bashir Abdullahi", role: "Architect & Head of Architectural Department", phone: "+234 803 592 9308", image: "" },
+  { name: "Yusuf Aliyu", role: "Architect", phone: "+234 703 188 6735", image: "" },
+  { name: "Adam Abdulwahid", role: "Site Architect", phone: "+234 903 252 0108", image: "" },
+  { name: "Bala Abubakar Hassan", role: "Site Architect", phone: "+234 806 633 7088", image: "" },
+  { name: "Abubakar Alhassan", role: "Site Architect", phone: "+234 816 235 5381", image: "" },
+  { name: "Sani S. Adoga", role: "Site Architect", phone: "+234 805 405 2888", image: "" },
 ]
 
 export const contact = {
